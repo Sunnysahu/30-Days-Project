@@ -25,8 +25,9 @@ function App() {
 
   function Card({ quote, index }) {
     return (
-      <div className="border-2 border-black p-4 rounded-md bg-red-200">
+      <div className="min-w-12 aspect-square border-2 border-black p-4 rounded-md bg-red-200 flex items-center text-wrap ">
         {console.log(index, "::", quote)}
+
         <p>{`${index + 1} - ${quote}`}</p>
       </div>
     );
@@ -42,7 +43,7 @@ function App() {
         Load Quotes
       </button>
 
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4 ">
         {quotes.map((quoteObj, index) => (
           <Card key={index} quote={quoteObj.quote} index={index} />
         ))}
