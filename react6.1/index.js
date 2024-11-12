@@ -8,10 +8,17 @@ dovenv.config();
 
 const port = process.env.PORT || 4000;
 
-app.get("/", (req, res) => {
+app.get("/quoteslist", (req, res) => {
   console.log(quotesArray);
 
   res.send(quotesArray);
+});
+app.get("/randomquotes", (req, res) => {
+  const randomNumber = Math.floor(Math.random() * 21);
+  const randomQuote = quotesArray[randomNumber];
+  console.log(randomQuote);
+
+  res.send(randomQuote);
 });
 
 app.get("/twitter", (req, res) => {
